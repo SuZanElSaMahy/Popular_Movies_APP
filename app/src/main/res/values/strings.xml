@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">PopularMovies</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_sort">SORT</string>
+    <string name="Sort_popular">popularity.desc</string>
+    <string name="Sort_Rate">vote_average.desc</string>
+    <string name="title_activity_movie_detail">MovieDetail</string>
+    <string name="action_share">Share</string>
+    <string name="apiKey"></string>
+</resources>
