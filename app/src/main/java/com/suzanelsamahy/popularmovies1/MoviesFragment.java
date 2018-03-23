@@ -40,8 +40,8 @@ public class MoviesFragment extends Fragment {
 
 
     MovieAdapter mMovieAdapter;
-    private String SORT_Higest_Rated="vote_average.desc";
-    private String SORT_Popularity = "popularity.desc";
+    private String SORT_Higest_Rated="top_rated";
+    private String SORT_Popularity = "popular";
     private String SORT_Favorite = "favorite";
     public static final String Sort ="sort_setting";
     public static final String Sort_file ="Sort_file";
@@ -344,13 +344,11 @@ public class MoviesFragment extends Fragment {
 
             try {
                 final String Movie_BASE_URL =
-                        "http://api.themoviedb.org/3/discover/movie?";
+                        "http://api.themoviedb.org/3/movie/"+params[0];
 
                 final String API_PARAM = "api_key";
-                final String SORT_PARAM = "sort_by";
 
                 Uri builtUri = Uri.parse(Movie_BASE_URL).buildUpon()
-                        .appendQueryParameter(SORT_PARAM, params[0])
                         .appendQueryParameter(API_PARAM, AppID)
                         .build();
 
