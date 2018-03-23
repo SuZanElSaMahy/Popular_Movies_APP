@@ -21,7 +21,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MoviesDetail"
+            android:name=".MoviesDetailActivity"
             android:label="@string/title_activity_movie_detail"
             android:parentActivityName=".MainActivity" >
             <meta-data
@@ -30,10 +30,9 @@
         </activity>
 
         <provider
+            android:name="com.suzanelsamahy.popularmovies1.data.MoviesProvider"
             android:authorities="com.suzanelsamahy.popularmovies1"
-            android:name=".Data.MoviesProvider"
-            />
-
+            android:exported="false"/>
     </application>
 
 </manifest>

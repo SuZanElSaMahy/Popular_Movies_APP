@@ -22,13 +22,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
-import com.suzanelsamahy.popularmovies1.Adapters.MovieAdapter;
-import com.suzanelsamahy.popularmovies1.Adapters.ReviewAdapter;
-import com.suzanelsamahy.popularmovies1.Adapters.TrailersAdapter;
-import com.suzanelsamahy.popularmovies1.Classes.Movie;
-import com.suzanelsamahy.popularmovies1.Classes.Review;
-import com.suzanelsamahy.popularmovies1.Classes.Trailers;
-import com.suzanelsamahy.popularmovies1.Data.MoviesDbHelper;
+import com.suzanelsamahy.popularmovies1.adapters.MovieAdapter;
+import com.suzanelsamahy.popularmovies1.adapters.ReviewAdapter;
+import com.suzanelsamahy.popularmovies1.adapters.TrailersAdapter;
+import com.suzanelsamahy.popularmovies1.classes.Movie;
+import com.suzanelsamahy.popularmovies1.classes.Review;
+import com.suzanelsamahy.popularmovies1.classes.Trailers;
+import com.suzanelsamahy.popularmovies1.data.MoviesDbHelper;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -47,7 +47,7 @@ import java.util.ArrayList;
 /**
  * A placeholder fragment containing a simple view.
  */
-public class MoviesDetailFragment extends Fragment {
+public class MoviesDetailFragment extends Fragment  {
 
     private final String LOG_TAG =  MoviesDetailFragment.class.getSimpleName();
     public static final String DET_MOV ="DET_MOV";
@@ -283,7 +283,6 @@ public class MoviesDetailFragment extends Fragment {
                 "http://www.youtube.com/watch?v=" + mTrailer.getKey());
         return shareIntent;
     }
-
 
 
     //-----------------------------------------------------------------------------------------------------------------------

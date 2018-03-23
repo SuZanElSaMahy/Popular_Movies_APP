@@ -2,7 +2,6 @@ package com.suzanelsamahy.popularmovies1;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -16,10 +15,10 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
-import com.suzanelsamahy.popularmovies1.Adapters.MovieAdapter;
-import com.suzanelsamahy.popularmovies1.Classes.Movie;
-import com.suzanelsamahy.popularmovies1.Data.MoviesContract;
-import com.suzanelsamahy.popularmovies1.Data.MoviesDbHelper;
+import com.suzanelsamahy.popularmovies1.adapters.MovieAdapter;
+import com.suzanelsamahy.popularmovies1.classes.Movie;
+import com.suzanelsamahy.popularmovies1.data.MoviesContract;
+import com.suzanelsamahy.popularmovies1.data.MoviesDbHelper;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -444,17 +443,17 @@ public class MoviesFragment extends Fragment {
 
 
 
-        private Movie[] getFavoriteMoviesFromDB(Cursor cursor) {
+        private Movie[] getFavoriteMoviesFromDB() {
 
 
             MoviesDbHelper Db = new MoviesDbHelper(mContext);
-            Movie[] resultStr = Db.ShowFavourites(cursor);
+            Movie[] resultStr = Db.ShowFavourites(mContext);
             return resultStr;
         }
 
         @Override
         protected Movie[] doInBackground(Void... params) {
-            Cursor cursor = mContext.getContentResolver().query(
+             mContext.getContentResolver().query(
                     MoviesContract.MoviesEntry.CONTENT_URI,
                     MOVIE_COLUMNS,
                     null,
@@ -462,7 +461,7 @@ public class MoviesFragment extends Fragment {
                     null
             );
 
-            return getFavoriteMoviesFromDB(cursor);
+            return getFavoriteMoviesFromDB();
         }
 
 

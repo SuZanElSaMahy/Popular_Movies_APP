@@ -1,4 +1,4 @@
-package com.suzanelsamahy.popularmovies1.Classes;
+package com.suzanelsamahy.popularmovies1.classes;
 
 
 public class Trailers {

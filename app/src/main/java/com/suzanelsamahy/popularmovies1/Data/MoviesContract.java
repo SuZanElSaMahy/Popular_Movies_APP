@@ -1,4 +1,4 @@
-package com.suzanelsamahy.popularmovies1.Data;
+package com.suzanelsamahy.popularmovies1.data;
 
 import android.content.ContentResolver;
 import android.content.ContentUris;

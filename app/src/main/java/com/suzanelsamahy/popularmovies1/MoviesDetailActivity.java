@@ -3,7 +3,7 @@ package com.suzanelsamahy.popularmovies1;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-public class MoviesDetail extends AppCompatActivity {
+public class MoviesDetailActivity extends AppCompatActivity {
 
 
 

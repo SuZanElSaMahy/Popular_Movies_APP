@@ -1,4 +1,4 @@
-package com.suzanelsamahy.popularmovies1.Adapters;
+package com.suzanelsamahy.popularmovies1.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.suzanelsamahy.popularmovies1.Classes.Review;
+import com.suzanelsamahy.popularmovies1.classes.Review;
 import com.suzanelsamahy.popularmovies1.R;
 
 import java.util.ArrayList;

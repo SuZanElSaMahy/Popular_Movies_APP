@@ -3,7 +3,7 @@ package com.suzanelsamahy.popularmovies1;
 import android.content.Context;
 import android.database.Cursor;
 
-import com.suzanelsamahy.popularmovies1.Data.MoviesContract;
+import com.suzanelsamahy.popularmovies1.data.MoviesContract;
 
 
 public class Utilities {

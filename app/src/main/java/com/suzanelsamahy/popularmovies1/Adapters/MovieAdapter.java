@@ -1,4 +1,4 @@
-package com.suzanelsamahy.popularmovies1.Adapters;
+package com.suzanelsamahy.popularmovies1.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,7 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 
 import com.squareup.picasso.Picasso;
-import com.suzanelsamahy.popularmovies1.Classes.Movie;
+import com.suzanelsamahy.popularmovies1.classes.Movie;
 import com.suzanelsamahy.popularmovies1.R;
 
 import java.util.ArrayList;

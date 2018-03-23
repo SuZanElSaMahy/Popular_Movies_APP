@@ -1,12 +1,13 @@
-package com.suzanelsamahy.popularmovies1.Data;
+package com.suzanelsamahy.popularmovies1.data;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
-import com.suzanelsamahy.popularmovies1.Classes.Movie;
+import com.suzanelsamahy.popularmovies1.classes.Movie;
 
 /**
  * Created by Dell2014 on 25/01/16.
@@ -50,7 +51,7 @@ public class MoviesDbHelper extends SQLiteOpenHelper {
 
 
 
-    public static long AddFavourite(Context context,Movie Object) {
+    public static void AddFavourite(Context context,Movie Object) {
         ContentValues Values = new ContentValues();
         Values.put(MoviesContract.MoviesEntry.COLUMN_POSTER,Object.getPoster());
         Values.put(MoviesContract.MoviesEntry.COLUMN_RELEASE_DATE,Object.getReleaseDate());
@@ -59,33 +60,51 @@ public class MoviesDbHelper extends SQLiteOpenHelper {
         Values.put(MoviesContract.MoviesEntry.COLUMN_OVERVIEW,Object.getOverview());
         Values.put(MoviesContract.MoviesEntry.COLUMN_TITLE, Object.getTitle());
 
-        MoviesDbHelper dh = new MoviesDbHelper(context);
-        SQLiteDatabase db =dh.getWritableDatabase();
-        long MovieRowId;
-        MovieRowId = db.insert(MoviesContract.MoviesEntry.TABLE_NAME, null, Values);
+//        MoviesDbHelper dh = new MoviesDbHelper(context);
+//        SQLiteDatabase db =dh.getWritableDatabase();
+//        long MovieRowId;
+//        MovieRowId = db.insert(MoviesContract.MoviesEntry.TABLE_NAME, null, Values);
+
+        // Insert the content values via a ContentResolver
+        context.getContentResolver().insert(MoviesContract.MoviesEntry.CONTENT_URI, Values);
 
 
 
-        return  MovieRowId;
+      //  return  MovieRowId;
 
     }
 
 
 
 
-    public Movie[] ShowFavourites(Cursor cursor) {
+    public Movie[] ShowFavourites(Context context) {
 
 
-        SQLiteDatabase db = getWritableDatabase();
-         cursor = db.query(
-                MoviesContract.MoviesEntry.TABLE_NAME,  // Table to Query
-                null, // all columns
-                null, // Columns for the "where" clause
-                null, // Values for the "where" clause
-                null, // columns to group by
-                null, // columns to filter by row groups
-                null // sort order
-        );
+//        SQLiteDatabase db = getWritableDatabase();
+//         cursor = db.query(
+//                MoviesContract.MoviesEntry.TABLE_NAME,  // Table to Query
+//                null, // all columns
+//                null, // Columns for the "where" clause
+//                null, // Values for the "where" clause
+//                null, // columns to group by
+//                null, // columns to filter by row groups
+//                null // sort order
+//        );
+
+        Cursor cursor;
+        try {
+           cursor = context.getContentResolver().query(MoviesContract.MoviesEntry.CONTENT_URI,
+                    null,
+                    null,
+                    null,
+                    null);
+
+        } catch (Exception e) {
+            Log.e("data1", "Failed to asynchronously load data.");
+            e.printStackTrace();
+            return null;
+        }
+
         int numRows = cursor.getCount();
 
         Movie[] FavoriteStr = new Movie[numRows];
@@ -133,12 +152,15 @@ public class MoviesDbHelper extends SQLiteOpenHelper {
 
 
     public static int deleteFavorite(Context context, int id) {
-        MoviesDbHelper dh = new MoviesDbHelper(context);
-        SQLiteDatabase db = dh.getReadableDatabase();
-       return  db.delete(MoviesContract.MoviesEntry.TABLE_NAME,
-                 MoviesContract.MoviesEntry.COLUMN_MOVIE_ID + " = ?",
-                 new String[]{Integer.toString(id)});
 
+        return context.getContentResolver().delete(MoviesContract.MoviesEntry.CONTENT_URI,
+               MoviesContract.MoviesEntry.COLUMN_MOVIE_ID + " = ?",
+               new String[]{Integer.toString(id)});
+//        MoviesDbHelper dh = new MoviesDbHelper(context);
+//      SQLiteDatabase db = dh.getReadableDatabase();
+//       return  db.delete(MoviesContract.MoviesEntry.TABLE_NAME,
+//                 MoviesContract.MoviesEntry.COLUMN_MOVIE_ID + " = ?",
+//                 new String[]{Integer.toString(id)});
 
     }
 

@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 
-import com.suzanelsamahy.popularmovies1.Classes.Movie;
+import com.suzanelsamahy.popularmovies1.classes.Movie;
 
 
 public class MainActivity extends AppCompatActivity implements MoviesFragment.Callback {
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements MoviesFragment.Ca
 
 
         } else {
-            Intent intent = new Intent(this, MoviesDetail.class)
+            Intent intent = new Intent(this, MoviesDetailActivity.class)
                     .putExtra(MoviesDetailFragment.DET_MOV, movie);
             startActivity(intent);
         }

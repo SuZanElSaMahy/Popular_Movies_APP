@@ -1,4 +1,4 @@
-package com.suzanelsamahy.popularmovies1.Data;
+package com.suzanelsamahy.popularmovies1.data;
 
 import android.content.ContentProvider;
 import android.content.ContentValues;
@@ -130,10 +130,6 @@ public class MoviesProvider extends ContentProvider {
 
         return rowsUpdated;
     }
-
-
-
-
 
 }
 
