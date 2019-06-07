@@ -6,14 +6,14 @@ The app:
 
 - Presents the user with a grid arrangement of movie posters upon launch.
 - Allows your user to change sort order via a setting:
-  -The sort order can be by most popular or by highest-rated.
+  - The sort order can be by most popular or by highest-rated.
   
 - Allows the user to tap on a movie poster and transition to a details screen with additional information such as:
-  -original title
-  -movie poster image thumbnail
-  -A plot synopsis (called overview in the api)
-  -user rating (called vote_average in the api)
-  -release date
+  - original title
+  - movie poster image thumbnail
+  - A plot synopsis (called overview in the api)
+  - user rating (called vote_average in the api)
+  - release date
 
 Besides, It:
 - Allows users to view and play trailers ( either in the youtube app or a web browser).
